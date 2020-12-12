@@ -1,11 +1,13 @@
+// plus btn and amount increaser 
+
 document
     .getElementById('addBtn')
     .addEventListener("click", function () {
         const productQt = document.getElementById('productQt');
         const productValueNum = parseInt(productQt.value);
-        const productAdd = productValueNum + 1;
-        productQt.value = productAdd;
-        const phonePriceTotal = productAdd * 1219;
+        const productNewCount = productValueNum + 1;
+        productQt.value = productNewCount;
+        const phonePriceTotal = productNewCount * 1219;
         document
             .getElementById("phonePrice")
             .innerText = phonePriceTotal;
@@ -21,4 +23,18 @@ document
         const productPriceTotal = productAdd2 * 59;
 
         document.getElementById("casePrice").innerText = productPriceTotal;
+    })
+
+
+    //Deduct Btn 
+
+    document.getElementById('DeductBtn').addEventListener('click',function() {
+         const productQt = document.getElementById('productQt');
+         const produtValueNum = parseInt(productQt.value);
+         const productNewCount = produtValueNum - 1;
+         productQt.value = productNewCount;
+
+         const phonePriceTotal =  productNewCount * 1219;
+         document.getElementById('phonePrice').innerText = phonePriceTotal;
+
     })
