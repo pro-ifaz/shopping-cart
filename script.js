@@ -1,40 +1,37 @@
-// plus btn and amount increaser 
+// for iphone 11
 
-document
-    .getElementById('addBtn')
-    .addEventListener("click", function () {
-        const productQt = document.getElementById('productQt');
-        const productValueNum = parseInt(productQt.value);
-        const productNewCount = productValueNum + 1;
-        productQt.value = productNewCount;
-        const phonePriceTotal = productNewCount * 1219;
-        document
-            .getElementById("phonePrice")
-            .innerText = phonePriceTotal;
-
-    })
-
-    document.getElementById("addBtn2").addEventListener("click",function(){
-        const productQt2 = document.getElementById('productQt2');
-        const productValueNum2 = parseFloat(productQt2.value);
-        const productAdd2 = productValueNum2 + 1;
-        productQt2.value = productAdd2;
-        
-        const productPriceTotal = productAdd2 * 59;
-
-        document.getElementById("casePrice").innerText = productPriceTotal;
-    })
+function handleProductChange (isIncrease){
+    const productQt = document.getElementById('productQt');
+    const productValueNum = parseInt(productQt.value);
+    let productNewCount = productValueNum;
+    if (isIncrease == true) {
+        productNewCount = productValueNum +1;
+    }
+    if (isIncrease == false && productValueNum > 0){
+        productNewCount = productValueNum -1;
+    }
+    productQt.value = productNewCount;
+    const phonePriceTotal =  productNewCount * 1219;
+    document.getElementById('phonePrice').innerText = phonePriceTotal;
+}
 
 
-    //Deduct Btn 
 
-    document.getElementById('DeductBtn').addEventListener('click',function() {
-         const productQt = document.getElementById('productQt');
-         const produtValueNum = parseInt(productQt.value);
-         const productNewCount = produtValueNum - 1;
-         productQt.value = productNewCount;
+// for iphone case
 
-         const phonePriceTotal =  productNewCount * 1219;
-         document.getElementById('phonePrice').innerText = phonePriceTotal;
+function handleProductChange2 (isIncrease){
+    const productQt = document.getElementById('productQt2');
+    const productValueNum = parseInt(productQt.value);
+    let productNewCount = productValueNum;
 
-    })
+    if (isIncrease ==true){
+        productNewCount = productValueNum + 1;
+    }
+    if (isIncrease ==false && productValueNum > 0) {
+        productNewCount = productValueNum -1
+    }
+    
+    productQt.value = productNewCount;
+    const productPriceTotal = productNewCount * 59;
+    document.getElementById("casePrice").innerText = productPriceTotal;
+}
