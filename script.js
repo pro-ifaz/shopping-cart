@@ -11,8 +11,10 @@ function handleProductChange (isIncrease){
         productNewCount = productValueNum -1;
     }
     productQt.value = productNewCount;
-    const phonePriceTotal =  productNewCount * 1219;
-    document.getElementById('phonePrice').innerText = phonePriceTotal;
+    const phonePriceTotal1 =  productNewCount * 1219;
+    document.getElementById('phonePrice').innerText = phonePriceTotal1;
+
+    total ();
 }
 
 
@@ -28,10 +30,29 @@ function handleProductChange2 (isIncrease){
         productNewCount = productValueNum + 1;
     }
     if (isIncrease ==false && productValueNum > 0) {
-        productNewCount = productValueNum -1
+        productNewCount = productValueNum -1;
     }
     
     productQt.value = productNewCount;
-    const productPriceTotal = productNewCount * 59;
-    document.getElementById("casePrice").innerText = productPriceTotal;
+    const casePriceTotal2 = productNewCount * 59;
+    document.getElementById("casePrice").innerText = casePriceTotal2;
+
+    total();
+}
+
+
+// grand total
+
+function total () {
+
+    const phonePrice = document.getElementById('phonePrice');
+    const phonePriceNum = parseInt(phonePrice.innerText);
+    const casePrice = document.getElementById('casePrice');
+    const casePriceNum = parseInt(casePrice.innerText);
+    const subTotal = phonePriceNum + casePriceNum;
+
+    document.getElementById("subtotal").innerText = subTotal;
+    document.getElementById('total').innerText = subTotal;
+
+
 }
